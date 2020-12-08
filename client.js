@@ -1,3 +1,8 @@
+$(document).ready(readyNow);
+function readyNow() {
+  console.log('jq');
+}
+
 const employees = [
   {
     name: 'Atticus',
@@ -77,6 +82,8 @@ function employeeBonusFunction(employee) {
   return employeeBonus
 
 }
+
+
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
 // This problem is massive! Break the problem down. Use the debugger.
