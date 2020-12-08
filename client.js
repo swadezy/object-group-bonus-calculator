@@ -33,7 +33,9 @@ const employees = [
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
-
+for (let employee of employees) {
+  console.log(employeeBonusFunction(employee));
+}
 
 function employeeBonusFunction(employee) {
 
@@ -75,12 +77,6 @@ function employeeBonusFunction(employee) {
   return employeeBonus
 
 }
-
-console.log(employeeBonusFunction(employees[0]))
-console.log(employeeBonusFunction(employees[1]))
-console.log(employeeBonusFunction(employees[2]))
-console.log(employeeBonusFunction(employees[3]))
-console.log(employeeBonusFunction(employees[4]))
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
 // This problem is massive! Break the problem down. Use the debugger.
