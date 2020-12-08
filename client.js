@@ -1,6 +1,7 @@
 $(document).ready(readyNow);
 function readyNow() {
   console.log('jq');
+  $('#showMeMoney').on('click', showMoney)
 }
 
 const employees = [
@@ -80,10 +81,13 @@ function employeeBonusFunction(employee) {
   employeeBonus.totalBonus = employee.annualSalary * Number(employeeBonus.bonusPercentage);
 
   return employeeBonus
-
 }
 
-
+function showMoney() {
+  for (let employee of employees) {
+  $('#bonusList').append('<li>'+employeeBonusFunction(employee)+'</li>');
+  }
+}
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
 // This problem is massive! Break the problem down. Use the debugger.
