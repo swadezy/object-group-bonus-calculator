@@ -33,10 +33,54 @@ const employees = [
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
-function employeeBonus(employee) {
-  
+
+
+function employeeBonusFunction(employee) {
+
+  let employeeBonus = {
+    name: employee.name,
+    bonusPercentage: 0,
+    totalCompensation: 0,
+    totalBonus: 0,
+  };
+
+  if (employee.reviewRating <= 2) {
+    employeeBonus.bonusPercentage = 0;
+  }
+  else if (employee.reviewRating === 3) {
+    employeeBonus.bonusPercentage = 0.04;
+  }
+  else if (employee.reviewRating === 4) {
+    employeeBonus.bonusPercentage = 0.06;
+  }
+  else if (employee.reviewRating === 5) {
+    employeeBonus.bonusPercentage = 0.1;
+  }
+  if (employee.employeeNumber.length < 5) {
+    employeeBonus.bonusPercentage += 0.05;
+  }
+  if (Number(employee.annualSalary) > 65000) {
+    employeeBonus.bonusPercentage -= 0.01;
+  }
+  if (employeeBonus.bonusPercentage > 0.13) {
+    employeeBonus.bonusPercentage = 0.13;
+  }
+  if (employeeBonus.bonusPercentage < 0) {
+    employeeBonus.bonusPercentage = 0;
+  }
+
+  employeeBonus.totalCompensation = Number(employee.annualSalary) + Number(employee.annualSalary) * Number(employeeBonus.bonusPercentage);
+  employeeBonus.totalBonus = employee.annualSalary * Number(employeeBonus.bonusPercentage);
+
+  return employeeBonus
+
 }
 
+console.log(employeeBonusFunction(employees[0]))
+console.log(employeeBonusFunction(employees[1]))
+console.log(employeeBonusFunction(employees[2]))
+console.log(employeeBonusFunction(employees[3]))
+console.log(employeeBonusFunction(employees[4]))
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
 // This problem is massive! Break the problem down. Use the debugger.
@@ -45,4 +89,4 @@ function employeeBonus(employee) {
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+console.log(employees);
